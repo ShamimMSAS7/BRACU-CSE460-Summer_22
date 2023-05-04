@@ -1,0 +1,21 @@
+// DSCH 2.7a
+// 28/08/2022 06:42:11 PM
+// C:\Users\Shamim Saif\OneDrive\Desktop\DHCH2\19101532_NAND2.sch
+
+module 19101532_NAND2( in1,in2,out1);
+ input in1,in2;
+ output out1;
+ nmos #(1) nmos(w2,vss,in2); // 1.0u 0.12u
+ nmos #(1) nmos(out1,w2,in1); // 1.0u 0.12u
+ pmos #(1) pmos(out1,vdd,in1); // 2.0u 0.12u
+ pmos #(1) pmos(out1,vdd,in2); // 2.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#10 in1=~in1;
+#20 in2=~in2;
+
+// Simulation parameters
+// in1 CLK 10 10
+// in2 CLK 20 20

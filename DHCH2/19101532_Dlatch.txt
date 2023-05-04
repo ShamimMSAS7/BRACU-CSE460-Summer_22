@@ -1,0 +1,36 @@
+// DSCH 2.7a
+// 28/08/2022 07:32:21 PM
+// C:\Users\Shamim Saif\OneDrive\Desktop\DHCH2\19101532_Dlatch.sch
+
+module 19101532_Dlatch( in1,clk1,out2,out1);
+ input in1,clk1;
+ output out2,out1;
+ wire w8,w9,w10,w11;
+ nmos #(5) nmos_191(w8,vss,w4); //  
+ nmos #(13) nmos_192(w5,w8,clk1); //  
+ pmos #(13) pmos_193(w5,vdd,clk1); //  
+ pmos #(13) pmos_194(w5,vdd,w4); //  
+ nmos #(5) nmos_195(w9,vss,in1); //  
+ nmos #(13) nmos_196(w7,w9,clk1); //  
+ pmos #(13) pmos_197(w7,vdd,clk1); //  
+ pmos #(13) pmos_198(w7,vdd,in1); //  
+ nmos #(5) nmos_199(w10,vss,w5); //  
+ nmos #(13) nmos_1910(out2,w10,out1); //  
+ pmos #(13) pmos_1911(out2,vdd,out1); //  
+ pmos #(13) pmos_1912(out2,vdd,w5); //  
+ nmos #(5) nmos_1913(w11,vss,w7); //  
+ nmos #(13) nmos_1914(out1,w11,out2); //  
+ pmos #(13) pmos_1915(out1,vdd,out2); //  
+ pmos #(13) pmos_1916(out1,vdd,w7); //  
+ nmos #(9) nmos_1917(w4,vss,in1); //  
+ pmos #(9) pmos_1918(w4,vdd,in1); //  
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#10 in1=~in1;
+#250 clk1=~clk1;
+
+// Simulation parameters
+// in1 CLK 10 10
+// clk1 CLK 250.000 250.000
